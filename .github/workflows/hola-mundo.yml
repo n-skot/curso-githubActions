@@ -1,0 +1,15 @@
+name: hola-mundo
+on: [push]
+
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chechout
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
+      - name: hola_mundo
+        run: node main.js
