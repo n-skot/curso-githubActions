@@ -1,0 +1,39 @@
+name: reto de clase 7
+run-name: expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: 'Edad'
+        required: true
+        type: number
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'Juan'
+        type: string
+      lenguaje:
+        description: 'Elige el lenguaje que mas te guste'
+        required: true
+        default: JavaScript
+        type: string
+
+jobs:
+  mayor:
+    if: ${{ inputs.edad >= 18 }} 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Correr script
+        run: echo ${{ inputs.nombre }} es mayor de edad
+  menor:
+    if: ${{ inputs.edad < 18 }} 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Correr script
+        run: echo ${{ inputs.nombre }} es menor de edad
+  programing:
+    if: ${{ inputs.lenguaje == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: proghraming
+        run: echo Genial vamos a hacer programing con ${{ inputs.lenguaje }}
